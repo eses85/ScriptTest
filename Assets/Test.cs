@@ -25,7 +25,7 @@ public class Boss
     public void Magic(int magic = 5)
     {
 
-        if (this.mp > 5)
+        if (this.mp >= 5)
         {
 
             this.mp -= magic;
