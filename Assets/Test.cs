@@ -22,22 +22,28 @@ public class Boss
         // 残りhpを減らす
         this.hp -= damage;
     }
-    public void Magic(int magic)
+    public void Magic(int magic = 5)
     {
-        int sum = 0;
-        for (int i = 0; i < mp; i += magic)
-        {
-            sum = i;
-        
-        Debug.Log("魔法攻撃をした。残りMPは" + (this.mp - sum));
-    }
-        if ((this.mp - sum) <5)
-        { 
-            Debug.Log("MPが足りないため魔法が使えない。");
 
-    }
+         Debug.Log("魔法攻撃をした。残りMPは" + this.mp); 
+        if (this.mp < 5)
+        {
+            Debug.Log("MPが足りないため魔法が使えない。");
         }
+        this.mp -= magic;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50,7 +56,7 @@ public class Boss
             {
                 Debug.Log(array[i]);
             }
-            for (int i = 4; i >= 0; i--)
+            for (int i = array.Length - 1; i >= 0; i--)
             {
                 Debug.Log(array[i]);
             }
@@ -62,17 +68,14 @@ public class Boss
             midboss.Attack();
             // 防御用の関数を呼び出す
             midboss.Defence(3);
-            midboss.Magic(5);
 
-
-        }
-
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            for (int i = 0; i < 11; i++)
+            {
+                midboss.Magic();
+            }
         }
     }
+
+    
 
  
