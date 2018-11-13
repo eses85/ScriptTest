@@ -25,14 +25,18 @@ public class Boss
     public void Magic(int magic = 5)
     {
 
-         Debug.Log("魔法攻撃をした。残りMPは" + this.mp); 
-        if (this.mp < 5)
+        if (this.mp > 5)
         {
-            Debug.Log("MPが足りないため魔法が使えない。");
+
+            this.mp -= magic;
+             Debug.Log("魔法攻撃をした。残りMPは" + this.mp); }
+
+            else if (this.mp < 5)
+            {
+                Debug.Log("MPが足りないため魔法が使えない。");
+            }
         }
-        this.mp -= magic;
     }
-}
 
 
 
@@ -69,7 +73,7 @@ public class Boss
             // 防御用の関数を呼び出す
             midboss.Defence(3);
 
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 15; i++)
             {
                 midboss.Magic();
             }
